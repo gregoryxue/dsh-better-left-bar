@@ -1,0 +1,71 @@
+{
+  "name": "dsh-better-left-bar",
+  "version": "1.0.0",
+  "description": "Better Left Sidebar for DSH: compact one-row top bar (new-chat + nav + footer actions as icons), WorkBuddy-style light-blue skin, drag-to-reorder layout editor, collapsible-friendly workspace scrolling. 顶栏一行化（新建会话/导航/底栏动作全部图标化等间距）+ WorkBuddy 浅蓝皮肤 + 侧栏布局拖拽编辑器 + 工作区滚动修复。",
+  "type": "module",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "dsh-better-left-bar contributors",
+  "icon": "icon.svg",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "ui",
+    "sidebar",
+    "topbar",
+    "one-row",
+    "skin",
+    "layout-editor"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "engines": {
+      "dsh": ">=0.2.1-rc.5"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "scripts": {
+    "check": "node --check client.js && node --check index.js"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@deepseek-ai/dsh": ">=0.2.1-rc.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  }
+}
